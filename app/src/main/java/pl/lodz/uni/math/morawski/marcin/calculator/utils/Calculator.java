@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Calculator {
-    private final List<String> listOfSubsequentMathComponent; // lista kolejnych skladników dzialan
+    private final List<String> listOfSubsequentMathComponent;
 
     public static final String OPERATORS = "+-*/";
     public static final String STRING = "0123456789";
@@ -45,7 +45,7 @@ public final class Calculator {
     }
 
     private void appendDot(String lastElement, String lastElementFistChar, int lastElementNumber) {
-        if (listOfSubsequentMathComponent.size() == 0) { // when list is epmty we push 0.
+        if (listOfSubsequentMathComponent.size() == 0) { // when list is empty we push 0.
             listOfSubsequentMathComponent.add("0.");
             return;
         }
@@ -55,8 +55,8 @@ public final class Calculator {
             return;
         }
 
-        if (STRING.contains(lastElementFistChar)) { // when last operator is number we check for dor inside
-            if (!lastElement.contains(".")) // if dont containts we push dot
+        if (STRING.contains(lastElementFistChar)) { // when last operator is number we check for dot inside
+            if (!lastElement.contains(".")) // if don't contains we push dot
             {
                 listOfSubsequentMathComponent.set(lastElementNumber, lastElement + DOT);
                 return;
