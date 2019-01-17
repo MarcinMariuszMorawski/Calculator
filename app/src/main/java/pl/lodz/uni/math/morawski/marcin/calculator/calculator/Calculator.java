@@ -1,9 +1,11 @@
-package pl.lodz.uni.math.morawski.marcin.calculator.utils;
+package pl.lodz.uni.math.morawski.marcin.calculator.calculator;
 
 import net.objecthunter.exp4j.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import pl.lodz.uni.math.morawski.marcin.calculator.utils.Conversions;
 
 public final class Calculator {
     private final List<String> listOfSubsequentMathComponent;
@@ -118,10 +120,18 @@ public final class Calculator {
 
         Expression expressionSolver = new ExpressionBuilder(expression()).build();
 
-        double solvedExpression = expressionSolver.evaluate();
-        result = Conversions.convertDoubleNumberToString(solvedExpression);
+        try{
+            double solvedExpression = expressionSolver.evaluate();
+            result = Conversions.convertDoubleNumberToString(solvedExpression);
+            return  result;
+        }catch (ArithmeticException e) {
+            result = "Divide by 0!";
+            return  result;
+        } catch (Exception e) {
+            result = "Invalid expression!";
+            return  result;
+        }
 
-        return result;
     }
 
 

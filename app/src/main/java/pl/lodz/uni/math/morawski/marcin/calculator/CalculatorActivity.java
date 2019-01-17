@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import pl.lodz.uni.math.morawski.marcin.calculator.database.DatabaseManager;
-import pl.lodz.uni.math.morawski.marcin.calculator.utils.Calculator;
+import pl.lodz.uni.math.morawski.marcin.calculator.calculator.Calculator;
 
 
 public class CalculatorActivity extends AppCompatActivity {
@@ -43,13 +43,7 @@ public class CalculatorActivity extends AppCompatActivity {
         String expression = calculator.expression();
         String solvedExpression;
 
-        try {
-            solvedExpression = calculator.solveExpression();
-        } catch (ArithmeticException e) {
-            solvedExpression = "Divide by 0!";
-        } catch (Exception e) {
-            solvedExpression = "Invalid expression!";
-        }
+        solvedExpression = calculator.solveExpression();
 
         StringBuilder equation = new StringBuilder();
         equation.append(expression).append("=").append(solvedExpression);
